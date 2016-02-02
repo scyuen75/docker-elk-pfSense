@@ -3,8 +3,6 @@ elasticsearch:
   environment:
     - ES_HEAP_SIZE=1024m
   command: elasticsearch -Des.network.host=0.0.0.0
-  volumes:
-    - ./elasticsearch/data:/usr/share/elasticsearch/data
   log_driver: "json-file"
   log_opt:
     max-size: "50m"
