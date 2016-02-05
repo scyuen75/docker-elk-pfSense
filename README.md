@@ -22,8 +22,8 @@ Based on the official images:
 1. Install [Docker](http://docker.io).
 2. Install [Docker-compose](http://docs.docker.com/compose/install/).
 3. Clone this repository
-4. Point pfSense syslog to <dockerhostip>:5140
-5. Connect to http://<dockerhostip>:5601
+4. Point pfSense syslog to dockerhostip:5140
+5. Connect to http://dockerhostip:5601
 6. Settings > Indicies > Create the default "logstash-*" index and set it to be default
 7. After you see logs rolling in, Import the objects.json file from the kibana/objects directory
 
@@ -51,7 +51,7 @@ You can also choose to run it in background (detached mode):
 $ docker-compose up -d
 ```
 
-Now that the stack is running, you'll want to inject logs in it. The shipped logstash configuration allows you to send content from pfSense on port 5140, in pfSense enable remote syslog and point it to <dockerhost>:5140
+Now that the stack is running, you'll want to inject logs in it. The shipped logstash configuration allows you to send content from pfSense on port 5140, in pfSense enable remote syslog and point it to dockerhost:5140
 
 And then access Kibana UI by hitting [http://localhost:5601](http://localhost:5601) with a web browser.
 
