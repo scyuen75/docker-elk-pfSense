@@ -1,5 +1,7 @@
 # Docker ELK stack for pfSense
 
+[docker-elk-pfSense](http://i.imgur.com/VwJPGCF.jpg)
+
 This is a fork of deviantony/docker-elk taylored to pfSense log parsing.
 
 Run the latest version of the ELK (Elasticseach, Logstash, Kibana) stack with Docker and Docker-compose.
