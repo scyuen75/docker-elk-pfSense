@@ -1,8 +1,10 @@
 elasticsearch:
-  image: elasticsearch:latest
+  build: elasticsearch/
   environment:
     - ES_HEAP_SIZE=1024m
   command: elasticsearch -Des.network.host=0.0.0.0
+  volumes: 
+    - /etc/localtime:/etc/localtime
   log_driver: "json-file"
   log_opt:
     max-size: "50m"
@@ -15,6 +17,7 @@ logstash:
   command: logstash -f /etc/logstash/conf.d/logstash.conf
   volumes:
     - ./logstash/config:/etc/logstash/conf.d
+    - /etc/localtime:/etc/localtime
   log_driver: "json-file"
   log_opt:
     max-size: "50m"
@@ -27,6 +30,7 @@ kibana:
   build: kibana/
   volumes:
     - ./kibana/config/kibana.yml:/opt/kibana/config/kibana.yml
+    - /etc/localtime:/etc/localtime
   log_driver: "json-file"
   log_opt:
     max-size: "50m"
