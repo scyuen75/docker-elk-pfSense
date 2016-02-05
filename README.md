@@ -1,5 +1,6 @@
 # Docker ELK stack for pfSense
 
+## Screenshot
 [docker-elk-pfSense](http://i.imgur.com/VwJPGCF.jpg)
 
 This is a fork of deviantony/docker-elk taylored to pfSense log parsing.
