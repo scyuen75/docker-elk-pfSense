@@ -1,9 +1,7 @@
-FROM logstash:latest
+ARG ELK_VERSION
 
-# switch to privledged user to make directory.
-USER root
+# https://github.com/elastic/logstash-docker
+FROM docker.elastic.co/logstash/logstash-oss:${ELK_VERSION}
 
-# Download GeoIP Data - note source may change in January 2019 see website for details.
-RUN mkdir -p /usr/share/GeoIP/ && \
-   curl "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >> /usr/share/GeoIP/GeoLiteCity.dat.gz && \
-   gunzip /usr/share/GeoIP/GeoLiteCity.dat.gz
+# Add your logstash plugins setup here
+# Example: RUN logstash-plugin install logstash-filter-json

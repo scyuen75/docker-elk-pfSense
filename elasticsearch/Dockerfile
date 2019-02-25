@@ -1,5 +1,7 @@
-FROM elasticsearch:latest
+ARG ELK_VERSION
 
-RUN plugin install license
-RUN plugin install watcher
-RUN plugin install marvel-agent 
+# https://github.com/elastic/elasticsearch-docker
+FROM docker.elastic.co/elasticsearch/elasticsearch-oss:${ELK_VERSION}
+
+# Add your elasticsearch plugins setup here
+# Example: RUN elasticsearch-plugin install analysis-icu

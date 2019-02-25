@@ -1,11 +1,7 @@
-FROM kibana:latest
+ARG ELK_VERSION
 
-RUN apt-get update && apt-get install -y netcat
+# https://github.com/elastic/kibana-docker
+FROM docker.elastic.co/kibana/kibana-oss:${ELK_VERSION}
 
-COPY entrypoint.sh /tmp/entrypoint.sh
-RUN chmod +x /tmp/entrypoint.sh
-
-RUN kibana plugin --install elasticsearch/marvel/latest
-RUN kibana plugin --install elastic/sense
-
-CMD ["/tmp/entrypoint.sh"]
+# Add your kibana plugins setup here
+# Example: RUN kibana-plugin install <name|url>
